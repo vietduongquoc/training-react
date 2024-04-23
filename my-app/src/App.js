@@ -1,15 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function MyButton() {
-  return (
-    <button>
-      CLick here
-    </button>
-  );
-}
-
+const products = [
+  { title: 'HTML', isFruit: true, id: 1 },
+  { title: 'CSS', isFruit: false, id: 2 },
+  { title: 'JS', isFruit: true, id: 3 },
+];
 function App() {
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount(count + 1);
+  }
+  const listItems = products.map(product =>
+    <li
+      key={product.id}
+      style={{
+        color: product.isFruit ? 'yellow' : 'darkgreen'
+      }}
+    >
+      {product.title}
+    </li>
+  );
   return (
     <div className="App">
       <header className="App-header">
@@ -26,10 +38,19 @@ function App() {
         >
           Learn React
         </a>
-        <MyButton />
+        <MyButton count={count} onClick={handleClick} />
+        <MyButton count={count} onClick={handleClick} />
+        <ul>{listItems}</ul>
       </header>
     </div>
   );
+  function MyButton({ count, onClick }) {
+    return (
+      <button onClick={onClick}>
+        Clicked {count} times
+      </button>
+    );
+  }
 }
 
 export default App;
