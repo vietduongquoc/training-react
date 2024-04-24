@@ -11,8 +11,6 @@ root.render(
   <React.StrictMode>
     <App />
     <TodoList />
-    <TodoList />
-    <TodoList />
   </React.StrictMode>
 );
 
