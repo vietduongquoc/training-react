@@ -8,7 +8,7 @@ li {
 
 .btnOnclick {
     padding: 10px 20px;
-    background-color:bisque;
+    background-color: bisque;
     color: red;
     display: flex;
     justify-content: center;
@@ -20,4 +20,11 @@ li {
     border: none;
     cursor: pointer;
     width: 100%;
+}
+
+.wrap-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    margin: 0 auto;
 }

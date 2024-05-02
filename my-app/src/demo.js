@@ -1,7 +1,9 @@
+import { useState } from "react";
+
 const courses = [
   {
-    "id": 1,
-    "name": "Louis Vuitton",
+    id: 1,
+    name: "Louis Vuitton",
     "status": true,
     "type": "Bravo",
     "quantity": 9117,
@@ -10,8 +12,8 @@ const courses = [
     "createdAt": 1710141660
   },
   {
-    "id": 2,
-    "name": "Johnson & Johnson",
+    id: 2,
+    name: "Johnson & Johnson",
     "status": false,
     "type": "Alfa",
     "quantity": 3064,
@@ -20,8 +22,8 @@ const courses = [
     "createdAt": 1710141660
   },
   {
-    "id": 4,
-    "name": "The Walt Disney",
+    id: 4,
+    name: "The Walt Disney",
     "status": false,
     "type": "Alfa",
     "quantity": 3128,
@@ -30,8 +32,8 @@ const courses = [
     "createdAt": 1710141660
   },
   {
-    "id": 5,
-    "name": "Mitsubishi",
+    id: 5,
+    name: "Mitsubishi",
     "status": true,
     "type": "Bravo",
     "quantity": 9892,
@@ -40,26 +42,24 @@ const courses = [
     "createdAt": 1710141660
   },
   {
-    "name": "Mitsubishi",
+    name: "Mitsubishi",
     "status": true,
     "type": "Bravo",
     "quantity": 9892,
     "brand": "Jorge Black",
     "price": 828.9,
     "createdAt": 1710747085,
-    "id": "38"
-  },
-  {
-    "name": "Mitsubishi",
+    id: 38
+  }, {
+    name: "Mitsubishi",
     "status": false,
     "type": "Bravo",
     "quantity": "9892",
     "brand": "Jorge Black",
     "price": "828.9",
     "createdAt": 1710811028,
-    "id": "40"
-  }
-]
+    id: 40
+  }]
 function CourseItem({ course, onClick }) {
   return (
     <div>
@@ -85,11 +85,28 @@ function Button({ title, href, onClick }) {
   )
 }
 
+
 export default function TodoList() {
   const handleClick = (course) => {
     console.log(course.name);
   }
 
+  const [checked, setChecked] = useState([])
+ console.log(checked);
+  const handleCheck = (id) => {
+    setChecked(prev => {
+      const isChecked = checked.includes(id)
+      if (isChecked) {
+        return checked.filter(item => item !== id)
+      }
+      else {
+        return [...prev, id]
+      }
+    })
+  }
+  const handleSubmit = () => {
+    console.log({ id: checked });
+  }
   return (
     <>
       <h3 className="titleName">Hedy Lamarr's Todos</h3>
@@ -111,6 +128,18 @@ export default function TodoList() {
         href="https://www.youtube.com/watch?v=5SU6P-cqoJw&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=19"
         onClick={() => console.log(Math.random())}
       />
+      <div className="wrap-form">
+        {courses.map(course =>(
+          <div key={course.id}>
+          <input type="checkbox" 
+          checked={checked.includes(course.id)}
+          onChange={() => handleCheck(course.id)}
+          /> 
+          {course.name}
+          </div>
+        ))}
+        <button onClick={handleSubmit}>Register</button>
+      </div>
     </>
   );
 }
