@@ -25,9 +25,9 @@ function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = 'Dễ :)): ' + winner + ' win'; 
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = 'Người chơi: ' + (xIsNext ? 'X' : 'O');
   }
   // console.log(handleClick);
 
@@ -72,9 +72,9 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = 'Lần chọn thứ ' + move;
     } else {
-      description = 'Go to game start';
+      description = 'Click để bắt đầu lại';
     }
     return (
       <li key={move}>
