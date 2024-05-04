@@ -92,7 +92,7 @@ export default function TodoList() {
   }
 
   const [checked, setChecked] = useState([])
- console.log(checked);
+
   const handleCheck = (id) => {
     setChecked(prev => {
       const isChecked = checked.includes(id)
@@ -106,6 +106,27 @@ export default function TodoList() {
   }
   const handleSubmit = () => {
     console.log({ id: checked });
+  }
+  
+  
+  const [job, setJob] = useState('');
+  const [jobs, setJobs] = useState(() => {
+    const storageJobs = JSON.parse(localStorage.getItem('jobs'))
+    console.log(storageJobs);
+    return storageJobs
+  });
+
+  const handleSubmitAdd = () => {
+    setJobs(prev => {
+      const newJobs = [...prev, job]
+
+      const jsonJobs = JSON.stringify(newJobs)
+
+      localStorage.setItem('jobs', jsonJobs)
+
+      return newJobs
+    })
+    setJob('')
   }
   return (
     <>
@@ -129,16 +150,25 @@ export default function TodoList() {
         onClick={() => console.log(Math.random())}
       />
       <div className="wrap-form">
-        {courses.map(course =>(
+        {courses.map(course => (
           <div key={course.id}>
-          <input type="checkbox" 
-          checked={checked.includes(course.id)}
-          onChange={() => handleCheck(course.id)}
-          /> 
-          {course.name}
+            <input type="checkbox"
+              checked={checked.includes(course.id)}
+              onChange={() => handleCheck(course.id)}
+            />
+            {course.name}
           </div>
         ))}
         <button onClick={handleSubmit}>Register</button>
+        <input value={job}
+          onChange={e => setJob(e.target.value)} />
+        <button onClick={handleSubmitAdd}>Add</button>
+        <ul>
+          {jobs.map((job, index) => (
+            <li key={index}>{job}
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );

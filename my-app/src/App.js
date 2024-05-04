@@ -9,7 +9,7 @@ function App() {
     setCount(count + 1);
   }
   function MyButton({ count, primary, onClick }) {
-    console.log(primary);
+
     return (
       <button onClick={onClick}>
         Clicked {count} times 
