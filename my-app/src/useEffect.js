@@ -3,6 +3,8 @@
 // function VideoPlayer({ src, isPlaying }) {
 //   const ref = useRef(null);
 
+// import { useState } from "react";
+
 //   useEffect(() => {
 //     if (isPlaying) {
 //       console.log('Calling video.play()');
@@ -38,28 +40,63 @@
 // }
 
 
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 
-function Example() {
-  
-  const [count, setCount] = useState(0);
-  
+// function Example() {
+
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     // Gọi sau mỗi lần component được render
+//     document.title = `You clicked ${count} times`;
+//   }, [count]); // useEffect chỉ được gọi lại nếu count thay đổi
+//   console.log(1231);
+//   return (
+
+//     <div>
+//       <p>You clicked {count} times</p>
+//       <button onClick={() => setCount(count + 1)}>
+//         Click me
+//       </button>
+//     </div>
+
+//   );
+
+// }
+
+// export default Example;
+
+// import { useState } from "react";
+
+import { useEffect, useState } from 'react';
+
+
+//1. useEffect(callback)
+//- Gọi callback mỗi khi components re-render
+//- Gọi callback sau khi components thêm element vào DOM
+//2. useEffect(callback, [])
+//3. useEffect(callback, [deps])
+//////
+//1,2,3. Callback luon được gọi khi component mounted
+
+
+function Content() {
+
+  const [title, setTitle] = useState('')
+
   useEffect(() => {
-    // Gọi sau mỗi lần component được render
-    document.title = `You clicked ${count} times`;
-  }, [count]); // useEffect chỉ được gọi lại nếu count thay đổi
-  console.log(1231);
+    document.title = title
+  })
+
   return (
-    
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <input
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+      />
     </div>
-    
-  );
-  
+  )
+
 }
 
-export default Example;
+export default Content;

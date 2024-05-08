@@ -7,16 +7,16 @@ import './index.css';
 // import TodoList from './demo';
 // import Gallery from './dataApp';
 import './tictactoe.css'
-// import Game from './tictactoe';
-import VideoPlayer from './useEffect'
+import Game from './tictactoe';
+// import VideoPlayer from './useEffect'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <TodoList /> */}
     {/* <Gallery /> */}
-    <VideoPlayer />
-    {/* <Game /> */}
+    {/* <VideoPlayer /> */}
+    <Game />
   </React.StrictMode>
 );
 
