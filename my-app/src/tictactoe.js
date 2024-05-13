@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Content from './useEffect';
-
+import Exams from './exam';
 
 // function Square({ value, onSquareClick }) {
 //   return (
@@ -54,7 +54,16 @@ import Content from './useEffect';
 //     </>
 //   );
 // }
-
+function Title() {
+  return( 
+    <h1>hello</h1>
+  )
+}
+function Input() {
+  return(
+    <input placeholder='nhap ten zo day'/>
+  )
+}
 export default function Game() {
 //   const [history, setHistory] = useState([Array(9).fill(null)]);
 //   const [currentMove, setCurrentMove] = useState(0);
@@ -86,10 +95,14 @@ export default function Game() {
 //   });
   // console.log(handlePlay);
   const [show, setShow] = useState(false)
+  console.log('Click');
   return (
     <div className="game">
+      <Title />
+      <Input />
       <button onClick={() => setShow(!show)}>Toggle</button>
       {show && <Content />} 
+      {show && <Exams />}
       {/* <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
