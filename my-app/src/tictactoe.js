@@ -60,11 +60,11 @@ function Title() {
     <h1>hello</h1>
   )
 }
-function Input() {
-  return(
-    <input placeholder='nhap ten zo day'/>
-  )
-}
+// function Input() {
+//   return(
+//     <input placeholder='nhap ten zo day'/>
+//   )
+// }
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
@@ -100,7 +100,7 @@ export default function Game() {
   return (
     <div className="game">
       <Title />
-      <Input />
+      {/* <Input /> */}
       <button onClick={() => setShow(!show)}>Toggle</button>
       {show && <Content />} 
       {/* {show && <Exams />} */}
