@@ -1,21 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './todoapp.css'
+// import './index.css';
 // import './demo.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import TodoList from './demo';
 // import Gallery from './dataApp';
-import './tictactoe.css'
-import Game from './tictactoe';
-import Avatar from './avatar';
+// import './tictactoe.css'
+// import Game from './tictactoe';
+// import Avatar from './avatar';
 // import VideoPlayer from './useEffect'
 // import MyApp from './useContext';
+import TaskManager from './todoapp';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-    <Game />,
-    <Avatar />,
+    // <Game />,
+    // <Avatar />,
+    <TaskManager />,
   {/* </React.StrictMode> */}
 );
 
