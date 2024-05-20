@@ -30,6 +30,7 @@ function TaskManager() {
                 {tasks.map((task, index) => (
                     <div key={index}>
                         <input
+                            className="listTask"
                             type="radio"
                             name="taskRadio"
                             onClick={() => handleRemoveTask(index)}

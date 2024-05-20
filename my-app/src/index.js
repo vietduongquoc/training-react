@@ -12,14 +12,18 @@ import './todoapp.css'
 // import Avatar from './avatar';
 // import VideoPlayer from './useEffect'
 // import MyApp from './useContext';
-import TaskManager from './todoapp';
+// import ExampleComponent from './useEffect';
+// import TaskManager from './todoapp';
+import ExamUseEffect from './examuseEffect';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-    // <Game />,
+  <React.StrictMode>
+    {/* // <Game />,
     // <Avatar />,
-    <TaskManager />,
-  {/* </React.StrictMode> */}
+    // <TaskManager />,
+    // <ExampleComponent />, */}
+    < ExamUseEffect />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app pass a function
